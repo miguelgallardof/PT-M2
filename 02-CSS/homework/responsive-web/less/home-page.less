@@ -4,6 +4,13 @@
 
   .intro {
 
+    img {
+      border-radius: 20px;
+      width: calc(100% - 16px);
+      // width: calc(100vw - 16px);
+      margin: 0 8px;
+    }
+
     h2 {
       padding: 15px;
     }
@@ -24,6 +31,16 @@
       margin: 20px 2.5%;
       border-radius: 20px;
       height: 100%;
+    }
+
+    @media @phone{
+      img {
+        width: calc(100vw - 16px);
+        margin: 40px 8px;
+      }
+      .tecnologia, .ondas{
+        display: none;
+      }
     }
   }
 
@@ -58,17 +75,41 @@
       }
 
       .btn {
+        .btn-mx(@bg-color: @btn-bg-color, @text-color: @porcelain);
+        cursor: pointer;
+      }
+
+      @media @phone {
+        .btn {
+          width: auto;
+          font-size: 16px;
+          text-align: center;
+          padding: 16px;
+        }
       }
     }
 
+    
     .actual-img {
       width: 46%;
       margin-left: 4%;
-
+      
       img {
         width: 100%;
         height: auto;
         border-radius: 10px;
+      }
+    }
+
+    @media @phone {
+      padding: 50px 15px;
+      flex-direction: column-reverse;
+      .actual-text {
+        width: 100%;
+      }
+      .actual-img {
+        width: 100%;
+        margin-left: 0;
       }
     }
   }
