@@ -3,22 +3,18 @@
 .home {
 
   .intro {
-
     img {
       border-radius: 20px;
       width: calc(100% - 16px);
       // width: calc(100vw - 16px);
       margin: 0 8px;
     }
-
     h2 {
       padding: 15px;
     }
-
     p {
       padding:0 15px;
     }
-
   }
 
   .music-images {
@@ -31,16 +27,6 @@
       margin: 20px 2.5%;
       border-radius: 20px;
       height: 100%;
-    }
-
-    @media @phone{
-      img {
-        width: calc(100vw - 16px);
-        margin: 40px 8px;
-      }
-      .tecnologia, .ondas{
-        display: none;
-      }
     }
   }
 
@@ -75,21 +61,16 @@
       }
 
       .btn {
-        .btn-mx(@bg-color: @btn-bg-color, @text-color: @porcelain);
+        .btn-mx(@btn-bg-color, @wild-sand);
         cursor: pointer;
-      }
 
-      @media @phone {
-        .btn {
-          width: auto;
-          font-size: 16px;
-          text-align: center;
-          padding: 16px;
+        &:hover {
+          background-color: @wild-sand;
+          color: @btn-bg-color
         }
       }
     }
 
-    
     .actual-img {
       width: 46%;
       margin-left: 4%;
@@ -99,18 +80,50 @@
         height: auto;
         border-radius: 10px;
       }
+    }    
+  }
+}
+
+// Diseño Mobile
+
+@media @phone {   
+  .home {
+    .music-images{
+      // Cambio
+      img {
+        width: calc(100vw - 16px);
+        margin: 40px 8px;
+      }
+      .tecnologia, .ondas{
+        display: none;
+      }
     }
 
-    @media @phone {
-      padding: 50px 15px;
+    .musica-nueva {
+      margin-bottom: 50px;
+    }
+    
+    .actual {
+      margin-top: 10px;
+      padding: 20px 15px;
       flex-direction: column-reverse;
+      
       .actual-text {
         width: 100%;
+
+        .btn {
+          display: flex;
+          justify-content: center;
+          padding: 20px;
+        }
       }
+
       .actual-img {
         width: 100%;
         margin-left: 0;
+        margin-bottom: 10px;
       }
     }
   }
 }
+    

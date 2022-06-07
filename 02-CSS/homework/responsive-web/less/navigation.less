@@ -1,22 +1,25 @@
 // Código de Nav acá
 .title{
-    font-size: 3.2rem;
     text-align: center;
+    font-size: 3.2rem;
     padding: 20px 0px;
+    background-color: @nav-bg;
     // pading: 20px 0px 20px 0px; // arriba derecha abajo izquierda
 }
 
 .navbar {
-    border-color: @nav-border;
     display: flex;
     justify-content: center;
-    background-color: @nav-bg;
     gap: 20px;
-}
-
-.letter {
-    font-size: 1.8rem;
+    background-color: @nav-bg;
+    border-color: @nav-border;
     margin-bottom: 10px;
+    .menu {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: @nav-font;
+    }
 }
 
 @media @phone {

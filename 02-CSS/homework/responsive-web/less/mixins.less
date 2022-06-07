@@ -5,13 +5,12 @@
 
 .btn-mx(@bg-color, @text-color) {
     background-color: @bg-color;
-    width: fit-content;
-    padding: 8px;
     color: @text-color;
+    display: inline-flex;
+    // display: flex;
+    // width: fit-content;
+    padding: 10px;
+    font-size: 16px;
     transition: background-color 0.5s;
     .radius();
-
-    &:hover {
-        background-color: @river-bend;
-    }
 }

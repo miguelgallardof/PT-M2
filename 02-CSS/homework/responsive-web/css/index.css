@@ -164,20 +164,24 @@ p {
   margin: 0 auto;
 }
 .title {
-  font-size: 3.2rem;
   text-align: center;
+  font-size: 3.2rem;
   padding: 20px 0px;
+  background-color: #F6F6F6;
 }
 .navbar {
-  border-color: #F1F1F1;
   display: flex;
   justify-content: center;
-  background-color: #F6F6F6;
   gap: 20px;
+  background-color: #F6F6F6;
+  border-color: #F1F1F1;
+  margin-bottom: 10px;
 }
-.letter {
+.navbar .menu {
   font-size: 1.8rem;
   margin-bottom: 10px;
+  font-weight: bold;
+  color: #454A59;
 }
 @media (max-width: 500px) {
   width: 100%;
@@ -215,16 +219,6 @@ footer {
   border-radius: 20px;
   height: 100%;
 }
-@media (max-width: 500px) {
-  .home .music-images img {
-    width: calc(100vw - 16px);
-    margin: 40px 8px;
-  }
-  .home .music-images .tecnologia,
-  .home .music-images .ondas {
-    display: none;
-  }
-}
 .home .musica-nueva {
   padding: 15px;
 }
@@ -252,23 +246,17 @@ footer {
 }
 .home .actual .actual-text .btn {
   background-color: #22283A;
-  width: fit-content;
-  padding: 8px;
-  color: #F6F7F8;
+  color: #F6F6F6;
+  display: inline-flex;
+  padding: 10px;
+  font-size: 16px;
   transition: background-color 0.5s;
   border-radius: 8px;
   cursor: pointer;
 }
 .home .actual .actual-text .btn:hover {
-  background-color: #454A59;
-}
-@media (max-width: 500px) {
-  .home .actual .actual-text .btn {
-    width: auto;
-    font-size: 16px;
-    text-align: center;
-    padding: 16px;
-  }
+  background-color: #F6F6F6;
+  color: #22283A;
 }
 .home .actual .actual-img {
   width: 46%;
@@ -280,15 +268,33 @@ footer {
   border-radius: 10px;
 }
 @media (max-width: 500px) {
+  .home .music-images img {
+    width: calc(100vw - 16px);
+    margin: 40px 8px;
+  }
+  .home .music-images .tecnologia,
+  .home .music-images .ondas {
+    display: none;
+  }
+  .home .musica-nueva {
+    margin-bottom: 50px;
+  }
   .home .actual {
-    padding: 50px 15px;
+    margin-top: 10px;
+    padding: 20px 15px;
     flex-direction: column-reverse;
   }
   .home .actual .actual-text {
     width: 100%;
   }
+  .home .actual .actual-text .btn {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
   .home .actual .actual-img {
     width: 100%;
     margin-left: 0;
+    margin-bottom: 10px;
   }
 }
