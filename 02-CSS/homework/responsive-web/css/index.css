@@ -197,6 +197,16 @@ footer {
   justify-content: center;
   align-items: center;
 }
+.home .intro h2 {
+  transition: 0.5s linear;
+}
+.home .intro h2:hover {
+  margin-left: 5px;
+  text-shadow: 0 0 10px #F6F7F8;
+}
+.home .intro h2:hover:before {
+  content: "> ";
+}
 .home .intro img {
   border-radius: 20px;
   width: calc(100% - 16px);
