@@ -15,8 +15,8 @@ var traverseDomAndCollectElements = function (matchFunc, startEl) {
 
   for (var i = 0; i < startEl.children.length; i++) {
     let child = startEl.children[i];
-    let elementsFound = traverseDomAndCollectElements(matchFunc, child);
-    resultSet = [...resultSet, ...elementsFound];
+    let result = traverseDomAndCollectElements(matchFunc, child);
+    resultSet = [...resultSet, ...result];
   }
 
   /*   for (let i = 0; i < startEl.children.length; i++) {
@@ -38,8 +38,8 @@ var traverseDomAndCollectElements = function (matchFunc, startEl) {
 
 var selectorTypeMatcher = function (selector) {
   // tu código aquí
-  if (selector[0] === ".") return "class";
-  else if (selector[0] === "#") return "id";
+  if (selector[0] === "#") return "id";
+  else if (selector[0] === ".") return "class";
   else if (selector.split(".").length > 1) return "tag.class";
   else return "tag";
 };
@@ -63,9 +63,8 @@ var matchFunctionMaker = function (selector) {
       return el.classList.contains(selector.substring(1));
     }; */
     matchFunction = function (el) {
-      let classes = el.classList;
-      for (let i = 0; i < classes.length; i++) {
-        if ("." + classes[i] === selector) {
+      for (let i = 0; i < el.classList.length; i++) {
+        if ("." + el.classList[i] === selector) {
           return true;
         }
       }
