@@ -41,6 +41,8 @@ var selectorTypeMatcher = function (selector) {
   if (selector[0] === "#") return "id";
   else if (selector[0] === ".") return "class";
   else if (selector.split(".").length > 1) return "tag.class";
+  else if (selector.split(">").length > 1) return "childCombinator";
+  else if (selector.split(" ").length > 1) return "descendantCombinator";
   else return "tag";
 };
 
@@ -92,6 +94,39 @@ var matchFunctionMaker = function (selector) {
       // return el.tagName === selector.toUpperCase(); // Pasa a mayúsculas
       return el.localName === selector;
     };
+  } else if (selectorType === "childCombinator") {
+    matchFunction = function (el) {
+      let [tag, i] = selector.split(" > ");
+      return (
+        matchFunctionMaker(i)(el) && matchFunctionMaker(tag)(el.parentNode)
+      );
+    };
+  } else if (selectorType === "descendantCombinator") {
+    matchFunction = function (el) {
+      let [tag, i] = selector.split(" ");
+      return (
+        matchFunctionMaker(i)(el) && matchFunctionMaker(tag)(el.parentNode)
+      );
+    };
+    /* matchFunction = function (el) {
+      return (
+        el.tagName.toLowerCase() === selector.split(" ")[0] &&
+        el.classList.contains(selector.split(" ")[1])
+      );
+    }; */
+    /* matchFunction = function (el) {
+      let [tag, className] = selector.split(" ");
+      return (
+        matchFunctionMaker(tag)(el) && matchFunctionMaker("." + className)(el)
+      );
+    }; */
+    /* let array = selector.split(" ");
+    let result = [];
+    console.log(array);
+    console.log(result);
+    matchFunction = function (elementoDom) {
+      result = elementoDom.tagName;
+    }; */
   }
   return matchFunction;
 };
