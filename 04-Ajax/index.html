@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=UTF-8>
+  <title>Demo AJAX</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id='respuesta'>
+  </div>
+  <button class='boton'>AJAX!</button>
+
+  <script type="text/javascript">
+    var index = 1; //2
+
+    //-------------- Con JQuery ----------------------------------------
+    $('.boton').click(function () {
+      // GET AJAX
+      $.get("https://jsonplaceholder.typicode.com/photos/" + index, function (data) { //json
+        // vanilla javascript
+        var img = document.createElement('img'); // <img>
+        img.src = data.url; // <img src="https://via.placeholder.com/600/92c952">
+        var title = document.createElement('h3'); // <h3>
+        title.textContent = data.title; // <h3>"accusamus beatae ad facilis cum similique qui sunt"<h3>
+        $('#respuesta').append(img)
+        $('#respuesta').append(title)
+        index++;
+      })
+    });
+
+  //------------- Con Javascript actual -------------------------------
+      
+    let button = document.getElementsByClassName('boton'); //[<button class='boton'>AJAX!</button>]
+    button[0].addEventListener('click', function(e) {
+      fetch("https://jsonplaceholder.typicode.com/photos/" + index)
+      .then(function(json) { json.json()}) //toma el json y lo transforma en un objeto JS
+      .then(obj => {
+        var img = document.createElement('img'); // <img>
+        img.src = obj.url; // <img src="https://via.placeholder.com/600/92c952">
+        var title = document.createElement('h3'); // <h3>
+        title.textContent = obj.title; // <h3>"accusamus beatae ad facilis cum similique qui sunt"<h3>
+        document.getElementById('respuesta').appendChild(img);
+        document.getElementById('respuesta').appendChild(title);
+        index++;
+      })
+    })
+
+  </script>
+
+</body>
+
+</html>
