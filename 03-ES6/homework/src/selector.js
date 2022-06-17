@@ -105,28 +105,9 @@ var matchFunctionMaker = function (selector) {
     matchFunction = function (el) {
       let [tag, i] = selector.split(" ");
       return (
-        matchFunctionMaker(i)(el) && matchFunctionMaker(tag)(el.parentNode)
+        matchFunctionMaker(i)(el) && matchFunctionMaker(tag)(el.closest(tag))
       );
     };
-    /* matchFunction = function (el) {
-      return (
-        el.tagName.toLowerCase() === selector.split(" ")[0] &&
-        el.classList.contains(selector.split(" ")[1])
-      );
-    }; */
-    /* matchFunction = function (el) {
-      let [tag, className] = selector.split(" ");
-      return (
-        matchFunctionMaker(tag)(el) && matchFunctionMaker("." + className)(el)
-      );
-    }; */
-    /* let array = selector.split(" ");
-    let result = [];
-    console.log(array);
-    console.log(result);
-    matchFunction = function (elementoDom) {
-      result = elementoDom.tagName;
-    }; */
   }
   return matchFunction;
 };
