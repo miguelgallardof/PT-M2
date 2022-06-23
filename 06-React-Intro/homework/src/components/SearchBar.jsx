@@ -1,6 +1,25 @@
-import React from 'react';
+import React from "react";
 
-export default function SearchBar(props) {
+/* export default function SearchBar({ onSearch }) {
   // acá va tu código
-  return <div>Search Bar Component</div>
-};
+  return (
+    <div>
+      <input type="search" placeholder="Ciudad..." />
+      <button onClick={onSearch}>Agregar</button>
+    </div>
+  );
+} */
+
+//Con clase
+class SearchBar extends React.Component {
+  render() {
+    return (
+      <div>
+        <input type="search" placeholder="Ciudad..." />
+        <button onClick={this.props.onSearch}>Agregar</button>
+      </div>
+    );
+  }
+}
+
+export default SearchBar;
