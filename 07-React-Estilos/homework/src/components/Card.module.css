@@ -1,0 +1,70 @@
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: fit-content;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem;
+    backdrop-filter: blur(25px);
+}
+
+.container:hover{
+    box-shadow: 1px 1px 5px var(--shadow);
+}
+
+.btnClose {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background-color: transparent;
+    color: var(--light-color);
+    border: 1px solid var(--light-color);
+    width: 2rem;
+    height: 2rem;
+    box-sizing: border-box;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: background-color 250ms;
+    justify-content: center;
+}
+
+.btnClose:hover {
+    background-color: var(--light-color);
+    opacity: 0.2;
+    color: var(--light-color);
+}
+
+.btnClose:focus {
+    outline: none;
+}
+
+.header {
+    color: var(--title-color);
+    font: 2rem Bebas Neue;
+
+}
+
+.grid {
+    /* display: flex;
+    justify-content: space-around; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+.label {
+    color: var(--label-color);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.value {
+    color: var(--light-color);
+    font-size: 2rem;
+    font-weight: 300;
+}
