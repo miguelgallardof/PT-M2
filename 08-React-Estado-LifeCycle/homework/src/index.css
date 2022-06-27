@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body, input, button{
+    font-family: 'Roboto', sans-serif;
+  }
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+  :root{
+    --border-color: #f1faee;
+    --title-color: #a8dadc;
+    --label-color: #028090;
+    --light-color: #e5e5e5;
+    --dark-color: #1d3557;
+    --bkg-color: #e8e8e4;
+    --shadow: #5b5b5b;
+    --text-color: #6a6a6a;
+  }

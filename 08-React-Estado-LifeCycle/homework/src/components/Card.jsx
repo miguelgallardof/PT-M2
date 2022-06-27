@@ -1,28 +1,30 @@
-import React from 'react';
-import './Card.css';
+import React from "react";
+import { BiExit } from "react-icons/bi";
+import s from "./Card.module.css";
 
-export default function Card ({min, max, name, img, onClose, id}) {
-    return (
-      <div className="card">
-        <div id="closeIcon" className="row">
-            <button onClick={onClose} className="btn btn-sm btn-danger">X</button>
+export default function Card({ max, min, name, img, onClose, main }) {
+  // acá va tu código
+  return (
+    <div className={[s.container, main ? s.mainCard : ""].join(" ")}>
+      <button className={s.btnClose} onClick={onClose}>
+        <BiExit />
+      </button>
+      <h3 className={s.name}>{name}</h3>
+      <section className={s.grid}>
+        <div>
+          <h5 className={s.label}>Min</h5>
+          <span className={s.value}>{min}º</span>
         </div>
-        <div className="card-body">
-          <h5 className="card-title">{name}</h5>
-          <div className="row">
-            <div className="col-sm-4 col-md-4 col-lg-4">
-              <p>Min</p>
-              <p>{min}°</p>
-            </div>
-            <div className="col-sm-4 col-md-4 col-lg-4">
-              <p>Max</p>
-              <p>{max}°</p>
-            </div>
-            <div className="col-sm-4 col-md-4 col-lg-4">
-              <img className="iconoClima" src={"http://openweathermap.org/img/wn/"+img+"@2x.png"} width="80" height="80" alt="" />
-            </div>
-          </div>
+        <div>
+          <h5 className={s.label}>Max</h5>
+          <span className={s.value}>{max}º</span>
         </div>
-      </div>
-    );
-};
+        <img
+          className={s.img}
+          src={`http://openweathermap.org/img/wn/${img}@${main ? 4 : 2}x.png`}
+          alt=""
+        />
+      </section>
+    </div>
+  );
+}
