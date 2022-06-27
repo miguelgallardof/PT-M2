@@ -27,7 +27,7 @@
     box-sizing: border-box;
     border-radius: 999px;
     font-weight: 600;
-    transition: background-color 250ms;
+    transition: background-color 750ms;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,9 +48,10 @@
     font-size: 2.25rem;
     font-weight: 700;
     background-color: #0093E9;
-    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    background-image: linear-gradient(180deg, #0093E9 0%, #80D0C7 100%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    padding-bottom: 2rem;
 }
 
 .grid {
@@ -59,7 +60,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .label {
@@ -98,7 +99,7 @@
 }
 
 .mainCard > section {
-    gap: 3rem;
+    gap: 1.5rem;
 }
 
 .mainCard:hover {

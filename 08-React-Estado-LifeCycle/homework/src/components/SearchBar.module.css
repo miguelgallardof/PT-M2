@@ -48,7 +48,7 @@
 .submit:hover {
     background-color: var(--light-color);
     color: var(--text-color);
-    opacity: 0.4;
+    opacity: 0.6;
 }
 
 .submit:focus {

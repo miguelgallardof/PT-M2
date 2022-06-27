@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Card from "./components/Card.jsx";
 import Cards from "./components/Cards.jsx";
+/* import Nav from "./components/Nav.jsx"; */
 import SearchBar from "./components/SearchBar.jsx";
 
 const apiKey = process.env.REACT_APP_APIKEY;
@@ -28,7 +29,9 @@ function App() {
             clouds: recurso.clouds.all,
             latitud: recurso.coord.lat,
             longitud: recurso.coord.lon,
+            humidity: recurso.main.humidity,
           };
+          console.log(recurso);
 
           const exist = cities.find((c) => c.id === city.id);
           if (!exist) {
@@ -61,6 +64,10 @@ function App() {
               min={cities[cities.length - 1].min}
               name={cities[cities.length - 1].name}
               img={cities[cities.length - 1].img}
+              wind={cities[cities.length - 1].wind}
+              temp={cities[cities.length - 1].temp}
+              humidity={cities[cities.length - 1].humidity}
+              weather={cities[cities.length - 1].weather}
               main={true}
             />
           ) : (
