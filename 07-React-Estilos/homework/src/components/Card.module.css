@@ -1,8 +1,5 @@
 .container {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     width: fit-content;
     border: 1px solid transparent;
@@ -10,6 +7,7 @@
     padding: 2.5rem;
     margin: 1rem;
     backdrop-filter: blur(25px);
+    animation-duration: 3s;
 }
 
 .container:hover{
@@ -45,7 +43,7 @@
     outline: none;
 }
 
-.header {
+.name {
     color: var(--title-color);
     font-size: 2.25rem;
     font-weight: 700;
@@ -75,3 +73,37 @@
     font-size: 2rem;
     font-weight: 300;
 }
+
+.mainCard {
+    backdrop-filter: none;   
+}
+
+.mainCard .container {
+    display: grid !important;
+    grid-column: auto;
+}
+
+.mainCard .btnClose{
+    display:none;
+}
+
+.mainCard .name{
+    font-size: 4rem;
+    text-align: left !important;
+    padding-bottom: 2rem;
+}
+
+.mainCard .value{
+    font-size: 2.5rem;
+}
+
+.mainCard > section {
+    gap: 3rem;
+}
+
+
+
+.mainCard:hover {
+    box-shadow: none;
+}
+

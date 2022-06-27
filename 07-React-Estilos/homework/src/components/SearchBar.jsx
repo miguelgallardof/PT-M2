@@ -7,7 +7,7 @@ export default function SearchBar({ onSearch }) {
   return (
     <div className={s.container}>
       <BiMapAlt className={s.icon} />
-      <input className={s.input} type="search" placeholder="Ciudad..." />
+      <input className={s.input} type="text" placeholder="Ciudad..." />
       <button className={s.submit} type="submit" onClick={onSearch}>
         <BiCustomize />
       </button>

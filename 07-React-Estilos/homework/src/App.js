@@ -19,6 +19,7 @@ function App() {
             name={Cairns.name}
             img={Cairns.weather[0].icon}
             onClose={() => alert(Cairns.name)}
+            main={true}
           />
         </section>
         <section className="mainCities">

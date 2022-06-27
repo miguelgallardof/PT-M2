@@ -6,8 +6,6 @@
   background-size: cover;
   height: 100%;
   min-height: 100vh */
-  height: 100%;
-  min-height: 100vh;
 }
 
 .video {
@@ -23,31 +21,39 @@
 .header {
   display: flex;
   z-index: 1;
-  justify-content: center;
   align-items: center;
   position: fixed;
   width: 100%;
   height: 8rem;
-  backdrop-filter: blur(8px);
-  background-color:#00000030;
-  transition: background-color 750ms;
-}
-
-.header:hover {
-  background-color:#00000060;
-
+  padding: 2rem;
 }
 
 .main {
   display: grid;
-  height: auto;
-  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .mainCity {
   display: flex;
   justify-content: center;
-  margin: 12.5rem 0rem 5rem 0rem;
+  backdrop-filter: blur(8px);
+  background-color:#00000030;
+  transition: background-color 750ms;
+}
+
+.mainCity:hover {
+  background-color:#00000060;
+}
+
+.mainCity, .mainCities {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.app, .mainCity {
+  height: 100%;
+  min-height: 100vh;
 }
 
 .App-logo {
