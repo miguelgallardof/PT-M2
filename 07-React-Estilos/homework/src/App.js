@@ -7,12 +7,12 @@ import data, { Cairns } from "./data.js";
 
 function App() {
   return (
-    <div className="App">
-      <header>
+    <div className="app">
+      <header className="header">
         <SearchBar onSearch={(ciudad) => alert(ciudad)} />
       </header>
-      <main>
-        <section>
+      <main className="main">
+        <section className="mainCity">
           <Card
             max={Cairns.main.temp_max}
             min={Cairns.main.temp_min}
@@ -21,7 +21,7 @@ function App() {
             onClose={() => alert(Cairns.name)}
           />
         </section>
-        <section>
+        <section className="mainCities">
           <Cards cities={data} />
         </section>
       </main>

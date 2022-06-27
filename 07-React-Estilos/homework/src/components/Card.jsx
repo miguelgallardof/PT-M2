@@ -1,4 +1,5 @@
 import React from "react";
+import { BiExit } from "react-icons/bi";
 import s from "./Card.module.css";
 
 export default function Card({ max, min, name, img, onClose }) {
@@ -6,7 +7,7 @@ export default function Card({ max, min, name, img, onClose }) {
   return (
     <div className={s.container}>
       <button className={s.btnClose} onClick={onClose}>
-        x
+        <BiExit />
       </button>
       <h3 className={s.header}>{name}</h3>
       <div className={s.grid}>
