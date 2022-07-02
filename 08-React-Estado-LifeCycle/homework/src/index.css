@@ -21,4 +21,5 @@ body {
     --bkg-color: #e8e8e4;
     --shadow: #5b5b5b;
     --text-color: #6a6a6a;
+    --gradiant-color: linear-gradient(180deg, #0093E9 0%, #80D0C7 100%);
   }

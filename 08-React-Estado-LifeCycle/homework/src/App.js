@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Card from "./components/Card.jsx";
 import Cards from "./components/Cards.jsx";
-/* import Nav from "./components/Nav.jsx"; */
-import SearchBar from "./components/SearchBar.jsx";
+import Nav from "./components/Nav.jsx";
+/* import SearchBar from "./components/SearchBar.jsx"; */
 
 const apiKey = process.env.REACT_APP_APIKEY;
+// const apiKey = "90f7c2bedf587c897dc3c57796bae807";
 
 function App() {
-  const [cities, setCities] = React.useState([]);
-
+  const [cities, setCities] = useState([]);
   function onSearch(ciudad) {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`
+      `http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`
     )
       .then((r) => r.json())
       .then((recurso) => {
@@ -32,30 +32,29 @@ function App() {
             humidity: recurso.main.humidity,
           };
           console.log(recurso);
-
           const exist = cities.find((c) => c.id === city.id);
           if (!exist) {
-            setCities((oldCities) => {
-              return [...oldCities, city];
-            });
+            setCities((oldCities) => [...oldCities, city]);
           } else {
             alert("Ciudad ya registrada");
           }
-        } /* else {
+        } else {
           alert("Ciudad no encontrada");
-        } */
+        }
       });
   }
-
   function onClose(id) {
-    setCities((oldCities) => oldCities.filter((c) => c.id !== id));
+    setCities((previousState) =>
+      previousState.filter((city) => city.id !== id)
+    );
   }
-
   return (
     <div className="app">
       <header className="header">
-        <SearchBar onSearch={(ciudad) => onSearch(ciudad)} />
+        <Nav onSearch={onSearch} />
+        {/* <SearchBar onSearch={onSearch} /> */}
       </header>
+
       <main className="main">
         <section className="mainCity">
           {cities.length ? (

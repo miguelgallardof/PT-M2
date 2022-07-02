@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiCustomize, BiMapAlt } from "react-icons/bi";
 import s from "./SearchBar.module.css";
 
 export default function SearchBar({ onSearch }) {
   // acá va tu código
+  const [city, setCity] = useState("");
+  function handleInputChange(e) {
+    setCity(e.target.value);
+  }
   return (
     <form
       className={s.container}
       onSubmit={(e) => {
         e.preventDefault();
-        const input = document.getElementById("inputCity");
-        onSearch(input.value);
-        input.value = "";
+        onSearch(city);
+        setCity("");
       }}
     >
       <BiMapAlt className={s.icon} />
@@ -20,8 +23,10 @@ export default function SearchBar({ onSearch }) {
         className={s.input}
         type="text"
         placeholder="Ciudad..."
+        value={city}
+        onChange={handleInputChange}
       />
-      <button className={s.submit} type="submit" onClick={onSearch}>
+      <button autofocus className={s.submit} type="submit">
         <BiCustomize />
       </button>
     </form>
