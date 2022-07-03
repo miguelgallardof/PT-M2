@@ -11,6 +11,8 @@ const apiKey = "4ae2636d8dfbdc3044bede63951a019b";
 
 function App() {
   const [cities, setCities] = useState([]);
+  const [city, setCity] = useState(""); // con params
+
   function onClose(id) {
     setCities((oldCities) => oldCities.filter((c) => c.id !== id));
   }
@@ -44,7 +46,8 @@ function App() {
   function onFilter(ciudadId) {
     let ciudad = cities.filter((c) => c.id === parseInt(ciudadId));
     if (ciudad.length > 0) {
-      return ciudad[0];
+      //return ciudad[0];
+      setCity(ciudad[0]);
     } else {
       return null;
     }
@@ -54,21 +57,26 @@ function App() {
       <Route path="/" render={() => <Nav onSearch={onSearch} />} />
       <main>
         <Route path="/about" component={About} />
-        <Route
-          exact
-          path="/"
-          render={() => <Cards cities={cities} onClose={onClose} />}
-        ></Route>
         {/* <Route exact path="/">
           <Cards cities={cities} onClose={onClose} />
         </Route> */}
         <Route
           exact
+          path="/"
+          render={() => <Cards cities={cities} onClose={onClose} />}
+        ></Route>
+
+        {/* <Route
+          exact
           path="/ciudad/:ciudadId"
           render={({ match }) => (
             <Ciudad city={onFilter(match.params.ciudadId)} />
           )}
-        ></Route>
+        ></Route> */}
+        {/* con params */}
+        <Route exact path="/ciudad/:ciudadId">
+          <Ciudad city={city} onFilter={onFilter} />
+        </Route>
         <hr />
       </main>
     </div>
