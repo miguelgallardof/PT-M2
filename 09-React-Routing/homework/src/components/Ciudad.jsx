@@ -22,6 +22,7 @@ export default Ciudad; */
 
 import React from "react";
 import { useParams } from "react-router-dom";
+
 export default function Ciudad({ city, onFilter }) {
   const params = useParams(); // match == > {params: {ciudadId: 1252025}}
   console.log(params);
