@@ -4,14 +4,13 @@ import Nav from "../components/Nav.jsx";
 import Cards from "../components/Cards.jsx";
 import { Route } from "react-router-dom";
 import About from "../components/About.jsx";
-import Ciudad from "../components/Ciudad";
-/* import Ciudad from "../components/Ciudad.jsx"; */
+import Ciudad from "../components/Ciudad.jsx";
 
-const apiKey = "4ae2636d8dfbdc3044bede63951a019b";
+const apiKey = "90f7c2bedf587c897dc3c57796bae807";
 
 function App() {
   const [cities, setCities] = useState([]);
-  const [city, setCity] = useState(""); // con params
+  // const [city, setCity] = useState(""); // con params
 
   function onClose(id) {
     setCities((oldCities) => oldCities.filter((c) => c.id !== id));
@@ -19,7 +18,7 @@ function App() {
   function onSearch(ciudad) {
     //Llamado a la API del clima
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}`
+      `http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`
     )
       .then((r) => r.json())
       .then((recurso) => {
@@ -43,15 +42,15 @@ function App() {
         }
       });
   }
-  function onFilter(ciudadId) {
+  /* function onFilter(ciudadId) {
     let ciudad = cities.filter((c) => c.id === parseInt(ciudadId));
     if (ciudad.length > 0) {
-      //return ciudad[0];
-      setCity(ciudad[0]);
+      return ciudad[0];
+      // setCity(ciudad[0]); // con params
     } else {
       return null;
     }
-  }
+  } */
   return (
     <div className="App">
       <Route path="/" render={() => <Nav onSearch={onSearch} />} />
@@ -65,7 +64,7 @@ function App() {
           path="/"
           render={() => <Cards cities={cities} onClose={onClose} />}
         ></Route>
-
+        <Route path="/ciudad/:id" component={Ciudad}></Route>
         {/* <Route
           exact
           path="/ciudad/:ciudadId"
@@ -74,9 +73,9 @@ function App() {
           )}
         ></Route> */}
         {/* con params */}
-        <Route exact path="/ciudad/:ciudadId">
+        {/* <Route exact path="/ciudad/:ciudadId">
           <Ciudad city={city} onFilter={onFilter} />
-        </Route>
+        </Route> */}
         <hr />
       </main>
     </div>
